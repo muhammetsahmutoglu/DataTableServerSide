@@ -17,6 +17,7 @@
                     <th scope="col">Age</th>
                     <th scope="col">Start Date</th>
                     <th scope="col">Salary</th>
+                    <th scope="col">IsActive</th>
                 </tr>
             </thead>
         </table>
@@ -38,7 +39,7 @@
                     "bServerSide": true,
                     "bProcessing": true,
                     "bSearchable": true,
-                    "order": [[1, 'asc']],
+                    "order": [[0, 'asc']],
                     "language": {
                         "emptyTable": "No record found.",
                         "processing":
@@ -70,6 +71,10 @@
                             "searchable": true
                         }, {
                             "data": "Salary",
+                            "autoWidth": true,
+                            "searchable": true
+                        }, {
+                            "data": "IsActive",
                             "autoWidth": true,
                             "searchable": true
                         },

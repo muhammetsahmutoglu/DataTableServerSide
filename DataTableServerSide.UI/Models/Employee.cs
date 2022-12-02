@@ -14,6 +14,7 @@ namespace DataTableServerSide.UI.Models
         public DateTime StartDate { get; set; }
         public string StartDateString { get; set; }
         public int Salary { get; set; }
+        public bool IsActive { get; set; }=true;
 
         public  IEnumerable<Employee> GetEmployees() 
         { 
@@ -36,9 +37,9 @@ namespace DataTableServerSide.UI.Models
             employees.Add(new Employee { Name = "Senem", Position = "Developer", Location = "İstanbul", Age = 31, StartDate = DateTime.Now.AddYears(-5), StartDateString = DateTime.Now.AddYears(-5).ToShortDateString(), Salary = 6000 });
             employees.Add(new Employee { Name = "Özge", Position = "Developer", Location = "İstanbul", Age = 31, StartDate = DateTime.Now.AddYears(-5), StartDateString = DateTime.Now.AddYears(-5).ToShortDateString(), Salary = 6000 });
             employees.Add(new Employee { Name = "Öznur", Position = "Developer", Location = "İstanbul", Age = 31, StartDate = DateTime.Now.AddYears(-5), StartDateString = DateTime.Now.AddYears(-5).ToShortDateString(), Salary = 6000 });
-            employees.Add(new Employee { Name = "Rıdvan", Position = "Developer", Location = "İstanbul", Age = 31, StartDate = DateTime.Now.AddYears(-5), StartDateString = DateTime.Now.AddYears(-5).ToShortDateString(), Salary = 6000 });
-            employees.Add(new Employee { Name = "Merve", Position = "Developer", Location = "İstanbul", Age = 31, StartDate = DateTime.Now.AddYears(-5), StartDateString = DateTime.Now.AddYears(-5).ToShortDateString(), Salary = 6000 });
-            employees.Add(new Employee { Name = "Ayşe", Position = "Developer", Location = "İstanbul", Age = 31, StartDate = DateTime.Now.AddYears(-5), StartDateString = DateTime.Now.AddYears(-5).ToShortDateString(), Salary = 6000 });
+            employees.Add(new Employee { Name = "Rıdvan", Position = "Developer", Location = "İstanbul", Age = 31, StartDate = DateTime.Now.AddYears(-5), StartDateString = DateTime.Now.AddYears(-5).ToShortDateString(), Salary = 6000 ,IsActive=false});
+            employees.Add(new Employee { Name = "Merve", Position = "Developer", Location = "İstanbul", Age = 31, StartDate = DateTime.Now.AddYears(-5), StartDateString = DateTime.Now.AddYears(-5).ToShortDateString(), Salary = 6000, IsActive = false });
+            employees.Add(new Employee { Name = "Ayşe", Position = "Developer", Location = "İstanbul", Age = 31, StartDate = DateTime.Now.AddYears(-5), StartDateString = DateTime.Now.AddYears(-5).ToShortDateString(), Salary = 6000, IsActive = false });
 
             return employees;
         }

@@ -28,6 +28,7 @@ namespace DataTableServerSide.UI.Controllers
                                               || x.Location.ToLower().Contains(param.sSearch.ToLower())
                                               || x.Salary.ToString().Contains(param.sSearch.ToLower())
                                               || x.Age.ToString().Contains(param.sSearch.ToLower())
+                                              || x.IsActive.ToString().Contains(param.sSearch.ToLower())
                                               || x.StartDate.ToString("dd'/'MM'/'yyyy").ToLower().Contains(param.sSearch.ToLower())).ToList();
             }
 
@@ -44,6 +45,10 @@ namespace DataTableServerSide.UI.Controllers
             else if (sortColumnIndex == 5)
             {
                 employees = sortDirection == "asc" ? employees.OrderBy(c => c.Salary) : employees.OrderByDescending(c => c.Salary);
+            }
+            else if (sortColumnIndex == 6)
+            {
+                employees = sortDirection == "asc" ? employees.OrderByDescending(c => c.IsActive) : employees.OrderBy(c => c.IsActive);
             }
             else
             {
