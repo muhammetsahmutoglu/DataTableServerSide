@@ -27,6 +27,7 @@
 @section scripts{
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+
     <script>
         $(document).ready(function () {
             bindDatatable();
@@ -35,17 +36,43 @@
         function bindDatatable() {
             datatable = $('#tblStudent')
                 .DataTable({
+                    language: {
+                        "sDecimal": ",",
+                        "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
+                        "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
+                        "sInfoEmpty": "Kayıt yok",
+                        "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
+                        "sInfoPostFix": "",
+                        "sInfoThousands": ".",
+                        "sLengthMenu": "Sayfada  _MENU_  kayıt göster",
+                        "sLoadingRecords": "Yükleniyor...",
+                        "sProcessing": "İşleniyor...",
+                        "sSearch": "Ara : ",
+                        "sZeroRecords": "Eşleşen kayıt bulunamadı",
+                        "oPaginate": {
+                            "sFirst": "İlk",
+                            "sLast": "Son",
+                            "sNext": "Sonraki",
+                            "sPrevious": "Önceki"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": artan sütun sıralamasını aktifleştir",
+                            "sSortDescending": ": azalan sütun sıralamasını aktifleştir"
+                        },
+                        "select": {
+                            "rows": {
+                                "_": "%d kayıt seçildi",
+                                "0": "",
+                                "1": "1 kayıt seçildi"
+                            }
+                        }
+                    },
                     lengthMenu: [10, 20, 50, 100, 200, 500],
                     "sAjaxSource": "/Employees/GetData",
                     "bServerSide": true,
                     "bProcessing": true,
                     "bSearchable": true,
                     "order": [[0, 'asc']],
-                    "language": {
-                        "emptyTable": "No record found.",
-                        "processing":
-                            '<i class="fa fa-spinner fa-spin fa-3x fa-fw" style="color:#2a2b2b;"></i><span class="sr-only">Loading...</span> '
-                    },
                     "columns": [
                         {
                             "data": "Name",
