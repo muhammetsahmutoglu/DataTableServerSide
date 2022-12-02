@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+<h2>Employee List</h2>
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-bordered table-striped" id="tblStudent">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">Salary</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section scripts{
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            bindDatatable();
+        });
+
+        function bindDatatable() {
+            datatable = $('#tblStudent')
+                .DataTable({
+                    "sAjaxSource": "/Employees/GetData",
+                    "bServerSide": true,
+                    "bProcessing": true,
+                    "bSearchable": true,
+                    "order": [[1, 'asc']],
+                    "language": {
+                        "emptyTable": "No record found.",
+                        "processing":
+                            '<i class="fa fa-spinner fa-spin fa-3x fa-fw" style="color:#2a2b2b;"></i><span class="sr-only">Loading...</span> '
+                    },
+                    "columns": [
+                        {
+                            "data": "Name",
+                            "autoWidth": true,
+                            "searchable": true
+                        },
+                        {
+                            "data": "Position",
+                            "autoWidth": true,
+                            "searchable": true
+                        },
+                        {
+                            "data": "Location",
+                            "autoWidth": true,
+                            "searchable": true
+                        },
+                        {
+                            "data": "Age",
+                            "autoWidth": true,
+                            "searchable": true
+                        }, {
+                            "data": "StartDateString",
+                            "autoWidth": true,
+                            "searchable": true
+                        }, {
+                            "data": "Salary",
+                            "autoWidth": true,
+                            "searchable": true
+                        },
+                    ]
+                });
+        }
+    </script>
+}
